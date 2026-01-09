@@ -1,0 +1,770 @@
+.saved-journeys {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.saved-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.saved-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  background: var(--bvg-yellow);
+  color: var(--text-primary);
+  border-color: var(--bvg-yellow);
+  font-weight: 600;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  gap: var(--spacing-md);
+  color: var(--text-muted);
+}
+
+.loading-spinner-large {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--ubahn-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.journeys-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.journey-card {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.journey-card:hover {
+  border-color: var(--ubahn-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.journey-card-content {
+  flex: 1;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.journey-route {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.route-origin,
+.route-destination {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.route-arrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.journey-name {
+  color: var(--ubahn-blue);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.journey-stopovers {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.journey-date {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.journey-legs-preview {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-xs);
+}
+
+.leg-badge {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.delete-btn {
+  padding: var(--spacing-lg);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 1px solid var(--border-color);
+}
+
+.delete-btn:hover {
+  background: rgba(204, 27, 65, 0.08);
+  color: var(--tram-red);
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  text-align: center;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-color);
+}
+
+.empty-state svg {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Stops List */
+.stops-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.stop-card {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.stop-card:hover {
+  border-color: var(--ubahn-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.stop-card-content {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.stop-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--ubahn-blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stop-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.stop-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.stop-name.has-custom {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.stop-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stop-custom-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.stop-card-content {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.edit-btn {
+  padding: var(--spacing-md);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-btn:hover {
+  color: var(--ubahn-blue);
+}
+
+/* Add Stop Button & Form */
+.add-stop-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: var(--spacing-md);
+  background: transparent;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-stop-btn:hover {
+  border-color: var(--ubahn-blue);
+  color: var(--ubahn-blue);
+  background: var(--bg-card-hover);
+}
+
+.add-stop-form {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.stop-search-input {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stop-search-input input {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.stop-search-input input::placeholder {
+  color: var(--text-muted);
+}
+
+.cancel-search-btn {
+  padding: var(--spacing-md);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-search-btn:hover {
+  color: var(--tram-red);
+}
+
+.stop-search-loading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--ubahn-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.stop-suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.stop-suggestions li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all 0.15s;
+}
+
+.stop-suggestions li:hover {
+  background: var(--bg-card-hover);
+}
+
+.stop-suggestions li svg {
+  color: var(--text-muted);
+}
+
+.no-stop-results {
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.stop-name-form {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.selected-stop-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.selected-stop-info svg {
+  color: var(--ubahn-blue);
+}
+
+.stop-name-form input {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.stop-name-form input:focus {
+  border-color: var(--ubahn-blue);
+}
+
+.stop-name-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.stop-form-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: flex-end;
+}
+
+.stop-form-actions .cancel-btn,
+.stop-form-actions .save-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.stop-form-actions .cancel-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.stop-form-actions .cancel-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.stop-form-actions .save-btn {
+  background: var(--ubahn-blue);
+  border: none;
+  color: white;
+}
+
+.stop-form-actions .save-btn:hover {
+  background: #0070c4;
+}
+
+/* Stop Edit Form */
+.stop-edit-form {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.stop-edit-form input {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.stop-edit-form input:focus {
+  border-color: var(--ubahn-blue);
+}
+
+.stop-edit-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.cancel-edit-btn,
+.save-edit-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-edit-btn {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.cancel-edit-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--tram-red);
+}
+
+.save-edit-btn {
+  background: var(--sbahn-green);
+  color: white;
+}
+
+.save-edit-btn:hover {
+  background: #007d45;
+}
+
+/* Journey Legs Count */
+.journey-legs-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Journey Detail View */
+.journey-detail-view {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.back-to-list {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.back-to-list:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.journey-detail-header {
+  padding: var(--spacing-lg);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.journey-route-detail {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.journey-route-detail .route-origin,
+.journey-route-detail .route-destination {
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.journey-legs-detail {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.leg-detail-card {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.leg-detail-number {
+  width: 32px;
+  height: 32px;
+  background: var(--bvg-yellow);
+  color: var(--text-primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.leg-detail-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.leg-detail-line {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  border-left: 3px solid var(--ubahn-blue);
+}
+
+.leg-emoji {
+  font-size: 1.125rem;
+}
+
+.leg-line-name {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.leg-direction {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.leg-detail-stops {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding-left: var(--spacing-sm);
+}
+
+.leg-stop {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.leg-stop .stop-time {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 50px;
+}
+
+.leg-stop .stop-name {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.leg-stop.from .stop-name {
+  color: var(--text-primary);
+}
+
+.leg-stop.to .stop-name {
+  color: var(--text-primary);
+}
+
+.leg-detail-duration {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding-left: var(--spacing-sm);
+}
+
+.journey-detail-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.replan-btn,
+.delete-detail-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.replan-btn {
+  background: var(--ubahn-blue);
+  color: white;
+  border: none;
+}
+
+.replan-btn:hover {
+  background: #0070c4;
+}
+
+.delete-detail-btn {
+  background: transparent;
+  color: var(--tram-red);
+  border: 1px solid var(--tram-red);
+}
+
+.delete-detail-btn:hover {
+  background: rgba(204, 27, 65, 0.1);
+}
+
+@media (max-width: 600px) {
+  .saved-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+  
+  .tabs {
+    width: 100%;
+  }
+  
+  .tab {
+    flex: 1;
+    justify-content: center;
+  }
+}
