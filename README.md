@@ -44,7 +44,7 @@ createdb los_transport
 Initialize the database schema:
 
 ```bash
-psql -d los_transport -f server/database/init.sql
+psql -d los_transport 
 ```
 
 ### 3. Configure Environment Variables
