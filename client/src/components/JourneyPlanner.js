@@ -4,7 +4,7 @@ import TransportOptions from './TransportOptions';
 import JourneyProgress from './JourneyProgress';
 import { useLanguage } from '../LanguageContext';
 import './JourneyPlanner.css';
-import { BsArrowCounterclockwise, BsArrowRight, BsBookmark, BsBookmarkFill, BsArrowLeft, BsCheckLg } from 'react-icons/bs';
+import { BsArrowCounterclockwise, BsArrowRight, BsBookmark, BsBookmarkFill, BsArrowLeft, BsCheckLg, BsExclamationCircleFill} from 'react-icons/bs';
 
 function JourneyPlanner({ origin, destination, stopovers, onComplete, onBack, user }) {
   const { strings } = useLanguage();
@@ -373,7 +373,7 @@ function JourneyPlanner({ origin, destination, stopovers, onComplete, onBack, us
 
         {error && (
           <div className="transport-error">
-            <BsExclamationCricleFill size={24} color="#e74c3c" />
+            <BsExclamationCircleFill size={24} color="#e74c3c" />
             <span>{error}</span>
             <button onClick={() => fetchLegOptions(currentFrom, currentTo, lastArrivalTime)}>
               {strings.journey.retry}
